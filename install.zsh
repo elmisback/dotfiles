@@ -65,7 +65,7 @@ function link_dotfiles {
 }
 
 function link_internals {
-  printf "vim/nvim... "
+  printf "  vim/nvim... "
   vim=$XDG_CONFIG_HOME/vim
   nvim=$XDG_CONFIG_HOME/nvim
   mkdir $vim/autoload 2>/dev/null || :
@@ -73,7 +73,7 @@ function link_internals {
   ln -sF $vim/autoload $nvim/
   echo "done!"
 
-  printf "vim-plug... "
+  printf "  vim-plug... "
   ln -sf $vim/vim-plug/plug.vim $vim/autoload/plug.vim
   echo "done!"
 }
