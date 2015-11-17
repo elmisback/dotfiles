@@ -19,13 +19,12 @@ echo "Generating internal configuration symlinks..."
 printf "vim... "
 mkdir $dotfiles/nvim/autoload 2>/dev/null || :
 ln -sf $dotfiles/nvim/init.vim $dotfiles/vim/.vimrc
-ln -sf $dotfiles/nvim/autoload $dotfiles/vim/autoload
-echo "[x]"
+ln -sf $dotfiles/vim/autoload $dotfiles/nvim/autoload
+echo "done!"
 
 printf "vim-plug... "
-ln -sf $dotfiles/vim/vim-plug/plug.vim $dotfiles/nvim/autoload/plug.vim
 ln -sf $dotfiles/vim/vim-plug/plug.vim $dotfiles/vim/autoload/plug.vim
-echo "[x]"
+echo "done!"
 
 echo ""
 
@@ -33,9 +32,11 @@ echo "Linking $dotfiles to $XDG_CONFIG_HOME..."
 
 # Make sure $XDG_CONFIG_HOME exists first.
 mkdir $XDG_CONFIG_HOME 2>/dev/null || :
-for pkg in $(ls -d $dotfiles/*); do
+for pkg in ${$(ls -d $dotfiles/*/):t}; do
+  printf "$pkg... "
   mkdir $XDG_CONFIG_HOME/$pkg 2>/dev/null || :
   stow --dir=$dotfiles --target=$XDG_CONFIG_HOME/$pkg $pkg
+  echo "done!"
 done
 
 # function manual_link {
