@@ -14,20 +14,6 @@ dotfiles=${0:a:h}
 # Use proper zsh environment.
 source $dotfiles/zsh/.zshenv
 
-echo "Generating internal configuration symlinks..."
-
-printf "vim... "
-mkdir $dotfiles/nvim/autoload 2>/dev/null || :
-ln -sf $dotfiles/nvim/init.vim $dotfiles/vim/.vimrc
-ln -sf $dotfiles/vim/autoload $dotfiles/nvim/autoload
-echo "done!"
-
-printf "vim-plug... "
-ln -sf $dotfiles/vim/vim-plug/plug.vim $dotfiles/vim/autoload/plug.vim
-echo "done!"
-
-echo ""
-
 echo "Linking $dotfiles to $XDG_CONFIG_HOME..."
 
 # Make sure $XDG_CONFIG_HOME exists first.
@@ -38,6 +24,22 @@ for pkg in ${$(ls -d $dotfiles/*/):t}; do
   stow --dir=$dotfiles --target=$XDG_CONFIG_HOME/$pkg $pkg
   echo "done!"
 done
+
+echo ""
+
+echo "Generating internal configuration symlinks..."
+
+printf "vim/nvim... "
+vim=$XDG_CONFIG_HOME/vim
+nvim=$XDG_CONFIG_HOME/nvim
+mkdir $vim/autoload 2>/dev/null || :
+ln -sf $nvim/init.vim $vim/.vimrc
+ln -sF $vim/autoload $nvim/
+echo "done!"
+
+printf "vim-plug... "
+ln -sf $vim/vim-plug/plug.vim $vim/autoload/plug.vim
+echo "done!"
 
 # function manual_link {
 #   if [ -d $XDG_CONFIG_HOME ]; then
