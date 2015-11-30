@@ -1,4 +1,3 @@
-* build antigen support
 * add common aliases, vi -> nvim
 * add tmux config file
 * tmux on mac scrolling
