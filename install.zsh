@@ -4,6 +4,7 @@
 
 # TODO
 # * Work out bootstrapping process.
+# * Add debug flag.
 # * Maybe add an optional victory tune.
 
 # (the script's directory)
@@ -17,6 +18,7 @@ function main {
   # Exit on error.
   set -e
 
+  # Parse flags.
   set -- "$@"
   zparseopts h=help U=uninstall R=reinstall
   helptext="Run without flags to install.\n"
@@ -64,6 +66,19 @@ function link_dotfiles {
   done
 }
 
+function install_plugins {
+  printf "  vim-plug... "
+  vim=$XDG_CONFIG_HOME/vim
+  rm -rf $vim/vim-plug
+  git clone git@github.com:junegunn/vim-plug $vim/vim-plug 2> /dev/null
+  echo "done!"
+  printf "  antigen... "
+  zsh=$XDG_CONFIG_HOME/zsh
+  rm -rf $zsh/antigen
+  git clone git@github.com:zsh-users/antigen $zsh/antigen 2> /dev/null
+  echo "done!"
+}
+
 function link_internals {
   printf "  vim/nvim... "
   vim=$XDG_CONFIG_HOME/vim
@@ -82,12 +97,11 @@ function install {
   echo "Linking $dotfiles to $XDG_CONFIG_HOME..."
   link_dotfiles
   echo ""
+  echo "Installing plugins..."
+  install_plugins
+  echo ""
   echo "Generating internal configuration symlinks..."
   link_internals
 }
 
 main "$@"
-
-#if [ ! -e $antigen ]; then
-#  git clone $antigen_url $antigen
-#fi
