@@ -42,13 +42,12 @@ function main {
 function uninstall {
   for pkg in $packages; do
     printf "  $pkg dotfiles... "
-    if [ $pkg = 'home' ]; then
-      stow -D --dir=$dotfiles --target=$HOME $pkg
-    else
-      rm -rf $XDG_CONFIG_HOME/$pkg 2>/dev/null || :
-    fi
+    rm -rf $XDG_CONFIG_HOME/$pkg 2>/dev/null || :
     echo "removed!"
   done
+  while read ptr_path; do
+    rm $HOME/${ptr_path:t};
+  done < $dotfiles/home.pointers
 }
 
 function link_dotfiles {
@@ -56,12 +55,8 @@ function link_dotfiles {
   mkdir $XDG_CONFIG_HOME 2>/dev/null || :
   for pkg in $packages; do
     printf "  $pkg... "
-    if [ $pkg = 'home' ]; then
-      stow $stow_flags --dir=$dotfiles --target=$HOME $pkg
-    else
-      mkdir $XDG_CONFIG_HOME/$pkg 2>/dev/null || :
-      stow $stow_flags --dir=$dotfiles --target=$XDG_CONFIG_HOME/$pkg $pkg
-    fi
+    mkdir $XDG_CONFIG_HOME/$pkg 2>/dev/null || :
+    stow $stow_flags --dir=$dotfiles --target=$XDG_CONFIG_HOME/$pkg $pkg
     echo "done!"
   done
 }
@@ -70,16 +65,17 @@ function install_plugins {
   printf "  vim-plug... "
   vim=$XDG_CONFIG_HOME/vim
   rm -rf $vim/vim-plug
-  git clone https://github.com/junegunn/vim-plug $vim/vim-plug 2> /dev/null
+  git clone -q https://github.com/junegunn/vim-plug $vim/vim-plug
   echo "done!"
   printf "  antigen... "
   zsh=$XDG_CONFIG_HOME/zsh
   rm -rf $zsh/antigen
-  git clone https://github.com/zsh-users/antigen $zsh/antigen 2> /dev/null
+  git clone -q https://github.com/zsh-users/antigen $zsh/antigen
   echo "done!"
   printf "  tpm... "
   tmux=$XDG_CONFIG_HOME/tmux
-  git clone https://github.com/tmux-plugins/tpm $tmux/tpm 2> /dev/null
+  rm -rf $tmux/tpm
+  git clone -q https://github.com/tmux-plugins/tpm $tmux/plugins/tpm
   echo "done!"
 }
 
@@ -94,6 +90,14 @@ function link_internals {
   echo "done!"
 }
 
+function link_home {
+  while read ptr_path; do 
+    printf "  ${ptr_path:t}... "
+    ln -sf $XDG_CONFIG_HOME/$ptr_path $HOME/${ptr_path:t}
+    echo "done!"
+  done < $dotfiles/home.pointers
+}
+
 function install {
   echo "Linking $dotfiles to $XDG_CONFIG_HOME..."
   link_dotfiles
@@ -103,6 +107,9 @@ function install {
   echo ""
   echo "Generating internal configuration symlinks..."
   link_internals
+  echo ""
+  echo "Generating HOME symlinks..."
+  link_home
 }
 
 main "$@"

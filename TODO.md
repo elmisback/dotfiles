@@ -1,5 +1,5 @@
 * add tmux config file
-* tmux on mac scrolling
+* vim sessions
 * system-specific modifications (work vs. play, etc.)
 * theming
 * streamline ssh config?
