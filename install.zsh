@@ -45,7 +45,7 @@ function uninstall {
     if [ $pkg = 'home' ]; then
       stow -D --dir=$dotfiles --target=$HOME $pkg
     else
-      rm -r $XDG_CONFIG_HOME/$pkg 2>/dev/null || :
+      rm -rf $XDG_CONFIG_HOME/$pkg 2>/dev/null || :
     fi
     echo "removed!"
   done
@@ -70,12 +70,16 @@ function install_plugins {
   printf "  vim-plug... "
   vim=$XDG_CONFIG_HOME/vim
   rm -rf $vim/vim-plug
-  git clone git@github.com:junegunn/vim-plug $vim/vim-plug 2> /dev/null
+  git clone https://github.com/junegunn/vim-plug $vim/vim-plug 2> /dev/null
   echo "done!"
   printf "  antigen... "
   zsh=$XDG_CONFIG_HOME/zsh
   rm -rf $zsh/antigen
-  git clone git@github.com:zsh-users/antigen $zsh/antigen 2> /dev/null
+  git clone https://github.com/zsh-users/antigen $zsh/antigen 2> /dev/null
+  echo "done!"
+  printf "  tpm... "
+  tmux=$XDG_CONFIG_HOME/tmux
+  git clone https://github.com/tmux-plugins/tpm $tmux/tpm 2> /dev/null
   echo "done!"
 }
 
@@ -86,9 +90,6 @@ function link_internals {
   mkdir $vim/autoload 2>/dev/null || :
   ln -sf $nvim/init.vim $vim/.vimrc
   ln -sF $vim/autoload $nvim/
-  echo "done!"
-
-  printf "  vim-plug... "
   ln -sf $vim/vim-plug/plug.vim $vim/autoload/plug.vim
   echo "done!"
 }
