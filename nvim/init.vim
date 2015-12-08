@@ -1,16 +1,46 @@
+" Plugins
+  call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
+
+  Plug 'bling/vim-airline'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-fugitive'
+  Plug 'terryma/vim-multiple-cursors'
+  Plug 'scrooloose/syntastic'
+
+  " Add plugins to &runtimepath
+  call plug#end()
+
+" vim-airline customizations
+  " theme
+  source $XDG_CONFIG_HOME/theme/vim-airline/savanna.vim
+  let g:airline_theme='savanna'
+
+  " tabline
+  let g:airline_powerline_fonts = 1
+  let g:airline#extensions#tabline#enabled = 1
+
+  " branch
+  let g:airline#extensions#branch#enabled = 1
+
+  " syntastic
+  let g:airline#extensions#syntastic#enabled = 1
+
+" TODO obviated by airline
 " Status line
   set ruler         " show row/col and % of file
   set showcmd       " show incomplete commands
 
 " Line numbers
+  set relativenumber  " show line number relative to the current line
   set number          " turn line numbers on
-  set numberwidth=5   " set width allocated for line numbers
+  set numberwidth=1
 
 " Searching
   set hlsearch                " highlight the last-searched pattern
   set ignorecase              " ignore case, except...
   set smartcase               " uppercase searches are case sensitive
-  nnoremap <CR> :noh<CR><CR>  " clear highlighting with return
+  " clear highlighting with return
+  nnoremap <CR> :noh<CR><CR>
 
 " Tabbing
   set expandtab " use spaces whenever tab is hit
@@ -32,10 +62,15 @@
   nnoremap tm  :tabm<Space>
   nnoremap td  :tabclose<CR>
 
+" Clipboard support
+  set clipboard+=unnamedplus
+
 " Colors
   set background=dark
   syntax on  " turn on syntax highlighting
-  colorscheme desert
+  let &rtp.=','.$XDG_CONFIG_HOME.'/theme/vim'
+  colorscheme base16-ateliersavanna
+
 
 " Misc.
   " Disable the arrow keys in command mode (a good habit).
@@ -48,8 +83,15 @@
   nnoremap j gj
   nnoremap k gk
 
-  " Show trailing whitepace and spaces before a tab:
-  :autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
+  " whitespace
+    " it's always annoying in these files
+    autocmd FileType c,py,java autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+    " otherwise, we define
+    command! -bar FixWhitespace %s/\s\+$//
+
+  " Neovim's matchit is broken right now; turn it off.
+  let loaded_matchit = 1
 
 " crosshair-style selection--useful for e.g. CSV
 " set cursorline

@@ -1,4 +1,5 @@
 source $XDG_CONFIG_HOME/zsh/antigen/antigen.zsh
+source $XDG_CONFIG_HOME/theme/shell/base16-ateliersavanna.dark.sh
 
 # Load the oh-my-zsh library.
 antigen use oh-my-zsh
@@ -27,6 +28,8 @@ setopt completealiases
 
 # nvim aliases.
 alias vimdiff="nvim -d"
+
+# NOTE tmux can't be aliased because of its tpm dependency :(
 
 # fasd configuration
 if [ $commands[fasd] ]; then # check if fasd is installed

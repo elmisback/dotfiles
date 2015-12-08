@@ -46,7 +46,7 @@ function uninstall {
     echo "removed!"
   done
   while read ptr_path; do
-    rm $HOME/${ptr_path:t};
+    rm -f $HOME/${ptr_path:t}
   done < $dotfiles/home.pointers
 }
 
@@ -74,7 +74,7 @@ function install_plugins {
   echo "done!"
   printf "  tpm... "
   tmux=$XDG_CONFIG_HOME/tmux
-  rm -rf $tmux/tpm
+  rm -rf $tmux/plugins/tpm
   git clone -q https://github.com/tmux-plugins/tpm $tmux/plugins/tpm
   echo "done!"
 }
