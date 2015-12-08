@@ -71,6 +71,11 @@
   let &rtp.=','.$XDG_CONFIG_HOME.'/theme/vim'
   colorscheme base16-ateliersavanna
 
+" Window navigation
+  nnoremap <C-h> <C-w><C-h>
+  nnoremap <C-j> <C-w><C-j>
+  nnoremap <C-k> <C-w><C-k>
+  nnoremap <C-l> <C-w><C-l>
 
 " Misc.
   " Disable the arrow keys in command mode (a good habit).
