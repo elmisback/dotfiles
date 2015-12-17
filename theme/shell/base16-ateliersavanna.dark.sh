@@ -31,7 +31,7 @@ color20="78/87/7d" # Base 04
 color21="df/e7/e2" # Base 06
 color_foreground="87/92/8a" # Base 05
 color_background="17/1c/19" # Base 00
-color_cursor="87/92/8a" # Base 05
+color_cursor="23/2a/25" # Base 01
 
 if [ -n "$TMUX" ]; then
   # tell tmux to pass the escape sequences through
@@ -87,8 +87,8 @@ if [ -n "$ITERM_SESSION_ID" ]; then
   printf $printf_template_custom Pi 87928a # bold color
   printf $printf_template_custom Pj 526057 # selection color
   printf $printf_template_custom Pk 87928a # selected text color
-  printf $printf_template_custom Pl 87928a # cursor
-  printf $printf_template_custom Pm 171c19 # cursor text
+  printf $printf_template_custom Pl 232a25 # cursor
+  printf $printf_template_custom Pm 526057 # cursor text
 else
   printf $printf_template_var 10 $color_foreground
   printf $printf_template_var 11 $color_background
