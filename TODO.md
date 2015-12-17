@@ -1,4 +1,5 @@
 * vim sessions
+* make nvim git's difftool
 * zsh theming (esp. perhaps time-specific/an $ATMOSPHERE variable hooked to the desktop as well?)
 * system-specific modifications (work vs. play, etc.--$ATMOSPHERE?)
 * streamline ssh config?
