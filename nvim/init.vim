@@ -66,6 +66,9 @@
   set clipboard+=unnamedplus
 
 " Colors
+  let base16colorspace=256  " Access colors present in 256 colorspace
+                            " (only use with base16-shell modification
+                            " to 256 colorspace)
   set background=dark
   syntax on  " turn on syntax highlighting
   let &rtp.=','.$XDG_CONFIG_HOME.'/theme/vim'
