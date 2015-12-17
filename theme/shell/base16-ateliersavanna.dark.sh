@@ -33,13 +33,14 @@ color_foreground="87/92/8a" # Base 05
 color_background="17/1c/19" # Base 00
 color_cursor="23/2a/25" # Base 01
 
-if [ -n "$TMUX" ]; then
-  # tell tmux to pass the escape sequences through
-  # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
-  printf_template="\033Ptmux;\033\033]4;%d;rgb:%s\007\033\\"
-  printf_template_var="\033Ptmux;\033\033]%d;rgb:%s\007\033\\"
-  printf_template_custom="\033Ptmux;\033\033]%s%s\007\033\\"
-elif [ "${TERM%%-*}" = "screen" ]; then
+#if [ -n "$TMUX" ]; then
+#  # tell tmux to pass the escape sequences through
+#  # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+#  printf_template="\033Ptmux;\033\033]4;%d;rgb:%s\007\033\\"
+#  printf_template_var="\033Ptmux;\033\033]%d;rgb:%s\007\033\\"
+#  printf_template_custom="\033Ptmux;\033\033]%s%s\007\033\\"
+# HACK: screen setting seem to work fine and don't trigger a bell.
+if [ "${TERM%%-*}" = "screen" ]; then
   # GNU screen (screen, screen-256color, screen-256color-bce)
   printf_template="\033P\033]4;%d;rgb:%s\007\033\\"
   printf_template_var="\033P\033]%d;rgb:%s\007\033\\"
