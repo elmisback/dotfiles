@@ -1,3 +1,4 @@
+* Remove e from .zshrc, change to v-like operator as per clvv/fasd README
 * vim sessions
 * make nvim git's difftool
 * zsh theming (esp. perhaps time-specific/an $ATMOSPHERE variable hooked to the desktop as well?)
