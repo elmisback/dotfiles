@@ -1,6 +1,6 @@
-* fix "zsh: locking failed" error
 * resolve issue with default git commit editor
 * remove dependency on GNU stow
+* Remove e from .zshrc, change to v-like operator as per clvv/fasd README
 * vim sessions
 * zsh fish-style autosuggestions
 * zsh theming (esp. perhaps time-specific/an $ATMOSPHERE variable hooked to the desktop as well?)
