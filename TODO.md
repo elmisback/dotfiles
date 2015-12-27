@@ -1,9 +1,12 @@
+* fix "zsh: locking failed" error
+* resolve issue with default git commit editor
+* remove dependency on GNU stow
 * vim sessions
-* make nvim git's difftool
+* zsh fish-style autosuggestions
 * zsh theming (esp. perhaps time-specific/an $ATMOSPHERE variable hooked to the desktop as well?)
-* system-specific modifications (work vs. play, etc.--$ATMOSPHERE?)
+* fix docker config location
+* make nvim git's difftool
 * streamline ssh config?
-* fix vim fold coloring
 * repair standard vim
 * work out MYVIMRC/VIMINIT variables as per https://tlvince.com/vim-respect-xdg
 
