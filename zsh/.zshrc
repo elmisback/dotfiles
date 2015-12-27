@@ -49,3 +49,6 @@ if [ $commands[fasd] ]; then # check if fasd is installed
   alias e=nvim_edit
   alias o='a -e open_command'
 fi
+
+# Generate the histfile if it doesn't yet exist.
+mkdir -p ${HISTFILE:h} && touch $HISTFILE
