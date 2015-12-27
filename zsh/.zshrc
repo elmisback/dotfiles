@@ -31,6 +31,7 @@ setopt completealiases
 alias vimdiff="nvim -d"
 
 # NOTE tmux can't be aliased because of its tpm dependency :(
+# TODO try aliasing vim (nvim)
 
 # fasd configuration
 if [ $commands[fasd] ]; then # check if fasd is installed
@@ -43,8 +44,11 @@ if [ $commands[fasd] ]; then # check if fasd is installed
 
   function nvim_edit {
     # Try using fasd, fall back to nvim.
-    fasd -e nvim -f $@
-    [[ -z "$(fasd -f $@)" ]] && nvim $@
+    [ -f $@ ] && nvim $@
+    if [ ! -f $@ ]; then
+      fasd -e nvim -f $@
+      [[ -z "$(fasd -f $@)" ]] && nvim $@
+    fi
   }
 
   alias e=nvim_edit
