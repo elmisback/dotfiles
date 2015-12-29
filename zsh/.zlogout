@@ -1,3 +1,3 @@
-if [[ $commands[VBoxClient] ]]
+if [[ $commands[VBoxClient] ]]; then
   pkill VBoxClient
 fi
