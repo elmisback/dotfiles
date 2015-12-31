@@ -1,3 +1,4 @@
+* play with prompt
 * export variables in zshenv that aren't ZSH-specific
 * make ansible playbook retry dir somewhere that's not $HOME
 * resolve issue with default git commit editor
