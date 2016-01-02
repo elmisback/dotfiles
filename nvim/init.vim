@@ -6,9 +6,15 @@
   Plug 'tpope/vim-fugitive'
   Plug 'terryma/vim-multiple-cursors'
   Plug 'scrooloose/syntastic'
+  Plug 'ntpeters/vim-better-whitespace'
 
   " Add plugins to &runtimepath
   call plug#end()
+
+  " vim-better-whitespace HACK: necessary because bug
+  autocmd VimEnter * DisableWhitespace
+  " autocmd VimEnter * EnableWhitespace  " turn off for now
+  autocmd BufWritePre * StripWhitespace  " eliminate whitespace on save
 
 " vim-airline customizations
   " theme
