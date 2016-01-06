@@ -1,13 +1,12 @@
-* add pylintrc, allow variable 'fs'
+* Remove e from .zshrc, change to v-like operator as per clvv/fasd README
+* vim sessions
+* zsh fish-style autosuggestions
 * add ctags support to vim
 * play with prompt
 * export variables in zshenv that aren't ZSH-specific
 * make ansible playbook retry dir somewhere that's not $HOME
 * resolve issue with default git commit editor
 * remove dependency on GNU stow
-* Remove e from .zshrc, change to v-like operator as per clvv/fasd README
-* vim sessions
-* zsh fish-style autosuggestions
 * zsh theming (esp. perhaps time-specific/an $ATMOSPHERE variable hooked to the desktop as well?)
 * fix docker config location
 * make nvim git's difftool
