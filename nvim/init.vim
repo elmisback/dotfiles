@@ -7,9 +7,13 @@
   Plug 'terryma/vim-multiple-cursors'
   Plug 'scrooloose/syntastic'
   Plug 'ntpeters/vim-better-whitespace'
+  Plug 'jmcantrell/vim-virtualenv'
 
   " Add plugins to &runtimepath
   call plug#end()
+
+  " virtualenv support
+  let g:virtualenv_auto_activate = 1
 
   " vim-better-whitespace HACK: necessary because bug
   autocmd VimEnter * DisableWhitespace
