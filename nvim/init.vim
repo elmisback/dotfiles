@@ -38,13 +38,10 @@
 " syntastic customizations
   let g:syntastic_always_populate_loc_list = 1
   let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_open = 0
   let g:syntastic_check_on_wq = 0
 
-" TODO obviated by airline
-" Status line
-  set ruler         " show row/col and % of file
-  set showcmd       " show incomplete commands
+  nnoremap <C-t> :SyntasticToggleMode<CR>
 
 " Line numbers
   set relativenumber  " show line number relative to the current line
