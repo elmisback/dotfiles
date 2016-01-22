@@ -41,8 +41,9 @@ if [ $commands[fasd] ]; then # check if fasd is installed
 
   function nvim_edit {
     # Try using fasd, fall back to nvim.
-    [ -f $@ ] && nvim $@
-    if [ ! -f $@ ]; then
+    if [ -f $@[$#] ]; then
+      nvim $@
+    else
       fasd -e nvim -f $@
       [[ -z "$(fasd -f $@)" ]] && nvim $@
     fi

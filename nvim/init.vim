@@ -66,14 +66,16 @@
   nnoremap <space> za
   vnoremap <space> zf
 
-" Vim tabs!
-  nnoremap th  :tabfirst<CR>
-  nnoremap tj  :tabprev<CR>
-  nnoremap tk  :tabnext<CR>
-  nnoremap tl  :tablast<CR>
-  nnoremap tn  :tabnew<Space>
-  nnoremap tm  :tabm<Space>
-  nnoremap td  :tabclose<CR>
+" Use buffers as tabs.
+  set hidden  " Allow open background files.
+  nnoremap th  :bfirst<CR>
+  nnoremap tj  :bprevious<CR>
+  nnoremap tk  :bnext<CR>
+  nnoremap tl  :blast<CR>
+  nnoremap tn  :edit<Space>
+  nnoremap x :bdelete<CR>
+  "nnoremap td  :tabclose<CR>
+  "nnoremap tm  :tabm<Space>
 
 " Clipboard support
   set clipboard+=unnamedplus
