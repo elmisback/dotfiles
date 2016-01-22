@@ -13,6 +13,10 @@ antigen bundle vi-mode
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle tarruda/zsh-autosuggestions
+
+antigen bundle zsh-users/zsh-completions
+
 
 # Load the theme.
 #antigen theme robbyrussell
@@ -23,6 +27,10 @@ antigen apply
 # Command completion.
 autoload -U compinit
 compinit
+
+# Autosuggestions
+autosuggest-toggle
+AUTOSUGGESTION_ACCEPT_RIGHT_ARROW=1
 
 # Autocomplete command-line switches for aliases.
 setopt completealiases
