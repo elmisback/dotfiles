@@ -8,6 +8,8 @@
   Plug 'scrooloose/syntastic'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'jmcantrell/vim-virtualenv'
+  Plug 'Shougo/unite.vim'
+  Plug 'Valloric/YouCompleteMe'
 
   " Add plugins to &runtimepath
   call plug#end()
@@ -54,6 +56,9 @@
   set smartcase               " uppercase searches are case sensitive
   " clear highlighting with return
   nnoremap <CR> :noh<CR><CR>
+
+" ctrl-p courtesy of Unite.vim
+  nnoremap <C-p> :Unite file_rec/neovim<CR>
 
 " Tabbing
   set expandtab " use spaces whenever tab is hit
