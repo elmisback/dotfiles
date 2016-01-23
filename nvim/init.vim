@@ -78,7 +78,7 @@
   nnoremap tk  :bnext<CR>
   nnoremap tl  :blast<CR>
   nnoremap tn  :edit<Space>
-  nnoremap x :bdelete<CR>
+  nnoremap td  :bdelete<CR>
   "nnoremap td  :tabclose<CR>
   "nnoremap tm  :tabm<Space>
 
