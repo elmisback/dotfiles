@@ -11,6 +11,7 @@ export TERM="xterm-256color"
 export PYLINTRC=$XDG_CONFIG_HOME/pylint/.pylintrc
 export TERMINAL=xterm
 export LANG=en_US.UTF-8
+export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
 export PATH=~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 if [ -f $ZDOTDIR/.zshenv-local ]; then
