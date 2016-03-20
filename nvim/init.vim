@@ -9,7 +9,7 @@
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'jmcantrell/vim-virtualenv'
   Plug 'Shougo/unite.vim'
-  Plug 'Valloric/YouCompleteMe'
+  " Plug 'Valloric/YouCompleteMe'
 
   " Add plugins to &runtimepath
   call plug#end()
@@ -30,6 +30,8 @@
   " tabline
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
 
   " branch
   let g:airline#extensions#branch#enabled = 1
