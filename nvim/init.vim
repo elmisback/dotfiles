@@ -9,7 +9,6 @@
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'jmcantrell/vim-virtualenv'
   Plug 'Shougo/unite.vim'
-  " Plug 'Valloric/YouCompleteMe'
 
   " Add plugins to &runtimepath
   call plug#end()
