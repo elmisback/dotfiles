@@ -89,6 +89,10 @@ if [ -n "$ITERM_SESSION_ID" ]; then
   printf $printf_template_custom Pk 87928a # selected text color
   printf $printf_template_custom Pl 232a25 # cursor
   printf $printf_template_custom Pm 526057 # cursor text
+elif [ "${TERM%%-*}" = "st" ]; then
+  printf $printf_template 256 $color_cursor
+  printf $printf_template 257 $color_foreground
+  printf $printf_template 258 $color_background
 else
   printf $printf_template_var 10 $color_foreground
   printf $printf_template_var 11 $color_background
