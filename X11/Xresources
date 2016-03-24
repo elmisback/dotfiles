@@ -1,6 +1,11 @@
 XTerm*faceName: Source Code Pro for Powerline:size=11:antialias=false
+
+! Make xterm interpret all incoming data as UTF-8 encoded.
 XTerm*locale: true
-XTerm*background: rgb:17/1c/19
+
+! Report 256 color support.
+! XTerm*termName: xterm-256color
+
 
 ! {{{ Quick Reference
 !
