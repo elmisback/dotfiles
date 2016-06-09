@@ -107,7 +107,7 @@ additional-builtins=
 required-attributes=
 
 # List of builtins function names that should not be used, separated by a comma
-bad-functions=map,filter,apply,input,file
+bad-functions=apply,input,file
 
 # Good variable names which should always be accepted, separated by a comma
 good-names=a,b,p,w,t,i,j,k,f,ex,Run,_,logger
