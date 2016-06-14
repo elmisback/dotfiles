@@ -6,7 +6,7 @@ ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
 export PAGER=less
 
-export EDITOR=nvim
+export EDITOR=vim
 export MYVIMRC=$XDG_CONFIG_HOME/vim/.vimrc
 
 export PYLINTRC=$XDG_CONFIG_HOME/pylint/.pylintrc

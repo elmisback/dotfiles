@@ -79,17 +79,6 @@ function install_plugins {
   echo "done!"
 }
 
-function link_internals {
-  printf "  vim/nvim... "
-  vim=$XDG_CONFIG_HOME/vim
-  nvim=$XDG_CONFIG_HOME/nvim
-  mkdir $vim/autoload 2>/dev/null || :
-  ln -sf $nvim/init.vim $vim/.vimrc
-  ln -sF $vim/autoload $nvim/
-  ln -sf $vim/vim-plug/plug.vim $vim/autoload/plug.vim
-  echo "done!"
-}
-
 function link_home {
   while read ptr_path; do 
     printf "  ${ptr_path:t}... "
@@ -104,9 +93,6 @@ function install {
   echo ""
   echo "Installing plugins..."
   install_plugins
-  echo ""
-  echo "Generating internal configuration symlinks..."
-  link_internals
   echo ""
   echo "Generating HOME symlinks..."
   link_home

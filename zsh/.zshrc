@@ -50,30 +50,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 setopt completealiases
 
 # nvim aliases.
-alias vimdiff="nvim -d"
-
-# fasd configuration
-if [ $commands[fasd] ]; then # check if fasd is installed
-  fasd_cache="${ZSH_CACHE_DIR}/fasd-init-cache"
-  if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-    fasd --init auto >| "$fasd_cache"
-  fi
-  source "$fasd_cache"
-  unset fasd_cache
-
-  function nvim_edit {
-    # Try using fasd, fall back to nvim.
-    if [ -f $@[$#] ]; then
-      nvim $@
-    else
-      fasd -e nvim -f $@
-      [[ -z "$(fasd -f $@)" ]] && nvim $@
-    fi
-  }
-
-  alias e=nvim_edit
-  alias o='a -e open_command'
-fi
+alias vimdiff="vim -d"
 
 # Generate the histfile if it doesn't yet exist.
 mkdir -p ${HISTFILE:h} && touch $HISTFILE
