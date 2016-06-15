@@ -1,14 +1,21 @@
-" Plugins
-  call plug#begin('$XDG_CONFIG_HOME/vim/plugged')
+" Conform to XDG
+  set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+  set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+  set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+  set runtimepath=$XDG_CACHE_HOME/vim,$XDG_CACHE_HOME/vim/after,$VIM,$VIMRUNTIME
+  let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
-  Plug 'bling/vim-airline'
-  Plug 'tpope/vim-surround'
+" Plugins
+  call plug#begin('$XDG_DATA_HOME/vim/plugged')
+
+  "Plug 'bling/vim-airline'
+  "Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
-  Plug 'terryma/vim-multiple-cursors'
-  Plug 'scrooloose/syntastic'
-  Plug 'ntpeters/vim-better-whitespace'
-  Plug 'jmcantrell/vim-virtualenv'
-  Plug 'Shougo/unite.vim'
+  "Plug 'terryma/vim-multiple-cursors'
+  "Plug 'scrooloose/syntastic'
+  "Plug 'ntpeters/vim-better-whitespace'
+  "Plug 'jmcantrell/vim-virtualenv'
+  "Plug 'Shougo/unite.vim'
 
   " Add plugins to &runtimepath
   call plug#end()
@@ -16,33 +23,33 @@
   " virtualenv support
   let g:virtualenv_auto_activate = 1
 
-  " vim-better-whitespace HACK: necessary because bug
-  autocmd VimEnter * DisableWhitespace
+"  " vim-better-whitespace HACK: necessary because bug
+"  autocmd VimEnter * DisableWhitespace
   " autocmd VimEnter * EnableWhitespace  " turn off for now
-  autocmd BufWritePre * StripWhitespace  " eliminate whitespace on save
+"  autocmd BufWritePre * StripWhitespace  " eliminate whitespace on save
 
-" vim-airline customizations
-  " theme
-  source $XDG_CONFIG_HOME/theme/vim-airline/savanna.vim
-  let g:airline_theme='savanna'
-
-  " tabline
-  let g:airline_powerline_fonts = 1
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#left_sep = ' '
-  let g:airline#extensions#tabline#left_alt_sep = '|'
-
-  " branch
-  let g:airline#extensions#branch#enabled = 1
-
-  " syntastic
-  let g:airline#extensions#syntastic#enabled = 1
-
-" syntastic customizations
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 0
-  let g:syntastic_check_on_wq = 0
+"" vim-airline customizations
+"  " theme
+"  source $XDG_CONFIG_HOME/theme/vim-airline/savanna.vim
+"  let g:airline_theme='savanna'
+"
+"  " tabline
+"  let g:airline_powerline_fonts = 1
+"  let g:airline#extensions#tabline#enabled = 1
+"  let g:airline#extensions#tabline#left_sep = ' '
+"  let g:airline#extensions#tabline#left_alt_sep = '|'
+"
+"  " branch
+"  let g:airline#extensions#branch#enabled = 1
+"
+"  " syntastic
+"  let g:airline#extensions#syntastic#enabled = 1
+"
+"" syntastic customizations
+"  let g:syntastic_always_populate_loc_list = 1
+"  let g:syntastic_auto_loc_list = 1
+"  let g:syntastic_check_on_open = 0
+"  let g:syntastic_check_on_wq = 0
 
   nnoremap <C-t> :SyntasticToggleMode<CR>
 
@@ -58,6 +65,7 @@
   " clear highlighting with return
   nnoremap <CR> :noh<CR><CR>
 
+" TODO look into this
 " ctrl-p courtesy of Unite.vim
   nnoremap <C-p> :Unite file_rec/neovim<CR>
 

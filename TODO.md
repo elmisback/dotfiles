@@ -1,4 +1,4 @@
-* Remove e from .zshrc, change to v-like operator as per clvv/fasd README
+* set locale
 * vim sessions
 * zsh fish-style autosuggestions
 * add ctags support to vim

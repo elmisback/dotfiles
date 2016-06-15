@@ -24,7 +24,7 @@ eval "$(dircolors $XDG_CONFIG_HOME/theme/shell/dircolors)"
 
 # zsh-completions
 autoload -U compinit
-compinit
+compinit -d ~/.cache/zsh/zcompdump
 
 # Autosuggestions HACK commented because currently broken
 # autosuggest-toggle
