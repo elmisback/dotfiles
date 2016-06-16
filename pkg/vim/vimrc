@@ -92,7 +92,7 @@
   "nnoremap tm  :tabm<Space>
 
 " Clipboard support
-  set clipboard+=unnamedplus
+  set clipboard=unnamedplus
 
 " Colors
   let base16colorspace=256  " Access colors present in 256 colorspace
