@@ -1,0 +1,7 @@
+! No scrollback (use tmux for that).
+URxvt*saveLines: 0
+URxvt*scrollBar: no
+
+! My font
+! URxvt.font: Source Code Pro for Powerline:size=13:antialias=false:autohint=false
+URxvt.font: xft:Monofur for Powerline:size=13
