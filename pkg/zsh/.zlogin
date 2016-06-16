@@ -7,6 +7,6 @@ if [[ $commands[VBoxClient] ]]; then
   VBoxClient --clipboard
 fi
 
-if [ -f $ZDOTDIR/.zlogin-local ]; then
-    . $ZDOTDIR/.zlogin-local
+if [ -f $ZDOTDIR/zlogin-local ]; then
+    . $ZDOTDIR/zlogin-local
 fi

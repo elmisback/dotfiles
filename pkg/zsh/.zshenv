@@ -19,6 +19,6 @@ export TERMINAL=xterm
 export XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
 export LANG=C.UTF-8
 
-if [ -f $ZDOTDIR/.zshenv-local ]; then
-    . $ZDOTDIR/.zshenv-local
+if [ -f $ZDOTDIR/zshenv-local ]; then
+    . $ZDOTDIR/zshenv-local
 fi

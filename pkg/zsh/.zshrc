@@ -38,3 +38,7 @@ alias vimdiff="vim -d"
 
 # Generate the histfile if it doesn't yet exist.
 mkdir -p ${HISTFILE:h} && touch $HISTFILE
+
+if [ -f $ZDOTDIR/zshrc-local ]; then
+    . $ZDOTDIR/zshrc-local
+fi
