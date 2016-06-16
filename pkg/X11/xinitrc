@@ -11,6 +11,6 @@ fi
 xmodmap $XDG_CONFIG_HOME/X11/Xmodmap
 xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
 
-if [ -f $XDG_CONFIG_HOME/X11/Xresources-local ] ; then
-  . $XDG_CONFIG_HOME/X11/Xresources-local
+if [ -f $XDG_CONFIG_HOME/X11/xinitrc-local ] ; then
+  . $XDG_CONFIG_HOME/X11/xinitrc-local
 fi
