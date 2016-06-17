@@ -39,6 +39,21 @@ alias vimdiff="vim -d"
 # Generate the histfile if it doesn't yet exist.
 mkdir -p ${HISTFILE:h} && touch $HISTFILE
 
+# fasd caching, if necessary
+#fasd_cache="$XDG_DATA_HOME/fasd/.fasd-init-zsh"
+#mkdir -p $XDG_DATA_HOME/fasd
+#if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+#  fasd --init auto >| "$fasd_cache"
+#fi
+#source "$fasd_cache"
+#unset fasd_cache
+
+mkdir -p $XDG_CACHE_HOME/fasd
+export _FASD_DATA=$XDG_CACHE_HOME/fasd/data
+eval "$(fasd --init auto)"
+
+alias v='f -e vim' # quick opening files with vim
+
 if [ -f $ZDOTDIR/zshrc-local ]; then
     . $ZDOTDIR/zshrc-local
 fi
