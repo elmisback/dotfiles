@@ -14,19 +14,75 @@
   "Plug 'terryma/vim-multiple-cursors'
   "Plug 'scrooloose/syntastic'
   Plug 'ntpeters/vim-better-whitespace'
+  Plug 'myusuf3/numbers.vim'
   "Plug 'jmcantrell/vim-virtualenv'
   "Plug 'Shougo/unite.vim'
+  Plug 'kana/vim-submode'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'haya14busa/incsearch-fuzzy.vim'
 
   " Add plugins to &runtimepath
   call plug#end()
 
-  " virtualenv support
-  let g:virtualenv_auto_activate = 1
+  " easymotion config
+    " Use <Leader> (backspace by default) for easymotion
+    map <Leader> <Plug>(easymotion-prefix)
+    let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+
+    " <Leader>f{char} to move to {char}
+    map  <Leader>f <Plug>(easymotion-bd-f)
+    nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+    " s{char}{char} to move to {char}{char}
+    nmap <Leader>s <Plug>(easymotion-overwin-f2)
+
+    " Move to line
+    map <Leader>L <Plug>(easymotion-bd-jk)
+    nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+    " Move to word
+    map  <Leader>w <Plug>(easymotion-bd-w)
+    nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+  " incsearch config
+    map / <Plug>(incsearch-forward)
+    map ? <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+
+    map z/ <Plug>(incsearch-fuzzy-/)
+    map z? <Plug>(incsearch-fuzzy-?)
+    map zg/ <Plug>(incsearch-fuzzy-stay)
+
+    " :h g:incsearch#auto_nohlsearch
+    set hlsearch
+    let g:incsearch#auto_nohlsearch = 1
+    map n  <plug>(incsearch-nohl-n)
+    map n  <plug>(incsearch-nohl-n)
+    map *  <plug>(incsearch-nohl-*)
+    map #  <plug>(incsearch-nohl-#)
+    map g* <plug>(incsearch-nohl-g*)
+    map g# <Plug>(incsearch-nohl-g#)
+
+"  READER submode
+  call submode#enter_with('READER', 'n', '', '<space>', 'H')
+  call submode#leave_with('READER', 'n', '', '<space>')
+  call submode#map('READER', 'n', '', 'j', '<C-e>')
+  call submode#map('READER', 'n', '', 'k', '<C-y>k')
+
+  " Turn off automatic timeout
+  let g:submode_timeout = 0
+  " don't consume submode-leaving key
+  let g:submode_keep_leaving_key = 1
+
+  " virtualenv support (oGf right now)
+  " let g:virtualenv_auto_activate = 1
 
   " vim-better-whitespace HACK: necessary because bug
   autocmd VimEnter * DisableWhitespace
   "autocmd VimEnter * EnableWhitespace  " turn off for now
   autocmd BufWritePre * StripWhitespace  " eliminate whitespace on save
+  "autocmd VimEnter * DisableNonCountedBasicMotions
 
 "" vim-airline customizations
 "  " theme
@@ -54,12 +110,11 @@
   nnoremap <C-t> :SyntasticToggleMode<CR>
 
 " Line numbers
-  set relativenumber  " show line number relative to the current line
-  set number          " turn line numbers on
+  " set relativenumber  " show line number relative to the current line
+  set number
   set numberwidth=1
 
 " Searching
-  set hlsearch                " highlight the last-searched pattern
   set ignorecase              " ignore case, except...
   set smartcase               " uppercase searches are case sensitive
   " clear highlighting with return
@@ -77,8 +132,8 @@
   set foldmethod=manual
 
   " fold with space
-  nnoremap <space> za
-  vnoremap <space> zf
+  " nnoremap <space> za
+  " vnoremap <space> zf
 
 " Use buffers as tabs.
   set hidden  " Allow open background files.
@@ -109,16 +164,21 @@
   nnoremap <C-k> <C-w><C-k>
   nnoremap <C-l> <C-w><C-l>
 
-" Misc.
+" Vim practice.
   " Disable the arrow keys in command mode (a good habit).
   map <up> <nop>
   map <down> <nop>
   map <left> <nop>
   map <right> <nop>
 
+  " Let's learn a different escape sequence.
+  inoremap <Esc> <nop>
+  inoremap jj <Esc>
+
+" Misc.
   " fix annoying line-skipping behavior on long lines
-  nnoremap j gj
-  nnoremap k gk
+  " nnoremap j gj
+  " nnoremap k gk
 
   " whitespace
     " it's always annoying in these files
