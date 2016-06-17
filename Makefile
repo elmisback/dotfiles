@@ -24,8 +24,8 @@ plugins:
 home:
 	ln -sf $(PWD)/pkg/zsh/.zshenv $(HOME)/.zshenv
 
-.PHONY: clean
-clean:
+.PHONY: uninstall
+uninstall:
 	rm -rf $(XDG_CONFIG_HOME)
 	rm -rf $(XDG_CACHE_HOME)
 	rm -f $(HOME)/.zshenv
