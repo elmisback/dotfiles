@@ -128,7 +128,7 @@
     command! -bar FixWhitespace %s/\s\+$//
 
   " Neovim's matchit is broken right now; turn it off.
-  let loaded_matchit = 1
+  " let loaded_matchit = 1
 
 " crosshair-style selection--useful for e.g. CSV
 " set cursorline
