@@ -54,10 +54,11 @@ export _FASD_DATA=$XDG_CACHE_HOME/fasd/data
 eval "$(fasd --init auto)"
 
 alias v='f -e vim' # quick opening files with vim
+alias h='vim -M <(tmux capture-pane -S - -p) +' # read history with vim
 
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"/tmux
 mkdir -p $TMUX_TMPDIR
-alias tmux="tmux -f '$XDG_CONFIG_HOME'/tmux/tmux.conf"
+alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
 
 if [ -f $ZDOTDIR/zshrc-local ]; then
     . $ZDOTDIR/zshrc-local
