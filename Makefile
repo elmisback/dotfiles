@@ -4,8 +4,8 @@ all: install
 
 .PHONY: debug
 debug:
-	echo $(XDG_CONFIG_HOME)	
-	echo $(XDG_CACHE_HOME)	
+	echo $(XDG_CONFIG_HOME)
+	echo $(XDG_CACHE_HOME)
 
 .PHONY: links
 links:
@@ -23,6 +23,8 @@ plugins:
 .PHONY: home
 home:
 	ln -sf $(PWD)/pkg/zsh/.zshenv $(HOME)/.zshenv
+	mkdir -p $(HOME)/.ssh
+	ln -sf $(PWD)/pkg/ssh/config $(HOME)/.ssh/config
 
 .PHONY: uninstall
 uninstall:

@@ -1,6 +1,4 @@
-# dotfiles
-
-## Installing
+# Installing
 Set up the files:
 ```
 make install
@@ -17,7 +15,13 @@ Finally, open tmux and run
 ```
 
 
-## Uninstalling (rather destructive)
+# Uninstalling (rather destructive)
 ```
 make uninstall
+```
+
+# Notes
+Tie `ssh-agent` to some kind of session with
+```
+ssh-agent <wm or terminal>
 ```
