@@ -8,10 +8,8 @@
 " Plugins
   call plug#begin('$XDG_DATA_HOME/vim/plugged')
 
-  "Plug 'bling/vim-airline'
-  "Plug 'tpope/vim-surround'
   Plug 'tpope/vim-fugitive'
-  "Plug 'terryma/vim-multiple-cursors'
+  Plug 'tpope/vim-surround'
   "Plug 'scrooloose/syntastic'
   Plug 'ntpeters/vim-better-whitespace'
   Plug 'myusuf3/numbers.vim'
@@ -75,37 +73,11 @@
   " don't consume submode-leaving key
   let g:submode_keep_leaving_key = 1
 
-  " virtualenv support (oGf right now)
-  " let g:virtualenv_auto_activate = 1
-
   " vim-better-whitespace HACK: necessary because bug
   autocmd VimEnter * DisableWhitespace
   "autocmd VimEnter * EnableWhitespace  " turn off for now
   autocmd BufWritePre * StripWhitespace  " eliminate whitespace on save
   "autocmd VimEnter * DisableNonCountedBasicMotions
-
-"" vim-airline customizations
-"  " theme
-"  source $XDG_CONFIG_HOME/theme/vim-airline/savanna.vim
-"  let g:airline_theme='savanna'
-"
-"  " tabline
-"  let g:airline_powerline_fonts = 1
-"  let g:airline#extensions#tabline#enabled = 1
-"  let g:airline#extensions#tabline#left_sep = ' '
-"  let g:airline#extensions#tabline#left_alt_sep = '|'
-"
-"  " branch
-"  let g:airline#extensions#branch#enabled = 1
-"
-"  " syntastic
-"  let g:airline#extensions#syntastic#enabled = 1
-"
-"" syntastic customizations
-"  let g:syntastic_always_populate_loc_list = 1
-"  let g:syntastic_auto_loc_list = 1
-"  let g:syntastic_check_on_open = 0
-"  let g:syntastic_check_on_wq = 0
 
   nnoremap <C-t> :SyntasticToggleMode<CR>
 
