@@ -173,7 +173,7 @@
 
   " Let's learn a different escape sequence.
   inoremap <Esc> <nop>
-  inoremap jj <Esc>
+  inoremap jk <Esc>
 
 " Misc.
   " fix annoying line-skipping behavior on long lines
