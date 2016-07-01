@@ -13,6 +13,8 @@ export EDITOR=vim
 # Set vimrc's location and source it on vim startup
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
+export ANSIBLE_CONFIG=$XDG_CONFIG_HOME/ansible/ansible.cfg
+
 export PYLINTRC=$XDG_CONFIG_HOME/pylint/.pylintrc
 export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
 
