@@ -56,6 +56,8 @@ eval "$(fasd --init auto)"
 alias v='f -e vim' # quick opening files with vim
 alias h='vim -M <(tmux capture-pane -S - -p) +' # read history with vim
 
+alias ls='ls -lhA --color=auto'
+
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"/tmux
 mkdir -p $TMUX_TMPDIR
 alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
