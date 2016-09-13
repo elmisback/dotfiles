@@ -1,30 +1,153 @@
-" Conform to XDG
-  set directory=$XDG_CACHE_HOME/vim,~/,/tmp
-  set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
-  set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
-  set runtimepath=$XDG_CACHE_HOME/vim,$XDG_CACHE_HOME/vim/after,$VIM,$VIMRUNTIME
-  let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
+" TODO: sessions
+" Vim settings {{{1
+  " XDG compliance (MUST stay at top) {{{2
+    set directory=$XDG_CACHE_HOME/vim,~/,/tmp
+    set backupdir=$XDG_CACHE_HOME/vim,~/,/tmp
+    set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+    set runtimepath=$XDG_CACHE_HOME/vim
+    set rtp+=$XDG_CACHE_HOME/vim/after,$VIM,$VIMRUNTIME
+    let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
-" Plugins
-  call plug#begin('$XDG_DATA_HOME/vim/plugged')
+  " Colors {{{2
+    set background=dark
 
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-obsession'
-  "Plug 'scrooloose/syntastic'
-  Plug 'ntpeters/vim-better-whitespace'
-  Plug 'myusuf3/numbers.vim'
-  "Plug 'jmcantrell/vim-virtualenv'
-  "Plug 'Shougo/unite.vim'
-  Plug 'kana/vim-submode'
-  Plug 'easymotion/vim-easymotion'
-  Plug 'haya14busa/incsearch.vim'
-  Plug 'haya14busa/incsearch-fuzzy.vim'
+    " Sources and sets my colorscheme of choice.
+    let base16colorspace=256  " Access colors present in 256 colorspace
+                              " (only use with base16-shell modification
+                              " to 256 colorspace)
+    let &rtp.=','.$XDG_CONFIG_HOME.'/theme/vim'
+    colorscheme base16-ateliersavanna
 
+  " Mappings {{{2
+    let mapleader=","
+
+  " Line numbers {{{2
+    set number
+    set relativenumber
+
+  " Cursor offsets {{{2
+    " Keep lines above the cursor for context.
+    set scrolloff=5
+
+  " Line wrapping (TODO) {{{2
+    "    " Line numbers and line breaks
+    "      " No numbers; soft line breaks, with the break marked.
+    "      set wrap linebreak nolist
+    "      set tw=0
+    "      set wrapmargin=0
+    "      set breakat=^.{80}
+    "      let &showbreak = '... '  " Indicates broken lines.
+    " j and k should behave as expected on wrapped lines
+    nnoremap j gj
+    nnoremap k gk
+    vnoremap j gj
+    vnoremap k gk
+
+  " Status line {{{2
+    " <Tab> on commmand line completes matches to longest common string;
+    " also shows wildmenu.
+    set wildmode=list:longest,full
+    set showcmd             " Show the current normal-mode command.
+
+  " Tabs and indentation {{{2
+    set expandtab       " Use spaces whenever tab is hit.
+                        " (Use <C-v><Tab> for a real tab.)
+
+    set smarttab        " Use shiftwidth at beginning of line, else sts
+    set shiftwidth=2
+    set softtabstop=4
+
+  " Mouse {{{2
+    set mouse=a  " Use the mouse.
+
+    " Scroll one row at a time instead of 3.
+    noremap <ScrollWheelUp> <C-Y>
+    noremap <ScrollWheelDown> <C-E>
+
+  " Clipboard support {{{2
+    set clipboard=unnamedplus
+
+  " Folding {{{2
+    set foldmethod=marker
+
+    " fold with space
+    nnoremap <space> za
+    vnoremap <space> zf
+
+  " Searching {{{2
+    set ignorecase              " ignore case, except...
+    set smartcase               " uppercase searches are case sensitive
+
+    " Highlight current search, but clear on <Leader>q
+    set hlsearch
+    nmap <Leader>q :nohlsearch<CR>
+
+  " Convenience {{{2
+    " For "help" files, close on q.
+    autocmd FileType help nnoremap <buffer> q :q<CR>
+    " Easy access to ex commands.
+    nnoremap ; :
+    " Make ex *mode* inaccessible.
+    nnoremap Q <nop>
+
+    " Show the following characters when 'list' is set.
+    " Useful for checking for tabs, etc., in a file
+    set listchars=tab:>-,trail:#,extends:>,precedes:<,nbsp:+
+
+" Plugins {{{1
+  " Plugin list and installation (vim-plug) {{{2
+    " See https://github.com/junegunn/vim-plug for details.
+
+    call plug#begin('$XDG_DATA_HOME/vim/plugged')
+
+    " Some defaults everyone can agree on.
+    Plug 'tpope/vim-sensible'
+
+    " TODO document
+    Plug 'tpope/vim-fugitive'
+
+    " TODO document
+    Plug 'tpope/vim-surround'
+
+    " TODO document
+    Plug 'tpope/vim-obsession'
+
+    " TODO document
+    Plug 'tpope/vim-vinegar'
+
+    " :Goyo for distraction-free writing.
+    Plug 'junegunn/goyo.vim'
+
+    " :Limelight to dim unfocused paragraphs.
+    Plug 'junegunn/limelight.vim'
+
+    " TODO document
+    Plug 'scrooloose/syntastic'
+
+    " Highlight and remove trailing whitespace.
+    Plug 'ntpeters/vim-better-whitespace'
+
+    " Use <Leader> for super-easy jumping.
+    Plug 'easymotion/vim-easymotion'
+
+    " 'search and display information from arbitrary sources'.
+    Plug 'Shougo/neoyank.vim' | Plug 'Shougo/vimproc.vim', {'do' : 'make'} | Plug 'Shougo/unite.vim'
+
+    " Highlight *all* pattern matches, unlike standard incsearch.
+    Plug 'haya14busa/incsearch.vim'
+
+    " Fuzzy searching with z/.
+    Plug 'haya14busa/incsearch-fuzzy.vim'
+"
   " Add plugins to &runtimepath
   call plug#end()
 
-  " easymotion config
+" Plugin configuration {{{2
+  " vim-better-whitespace {{{3
+    " For all files, strip trailing whitespace on write.
+    autocmd BufWritePre * StripWhitespace
+
+  " easymotion {{{3
     " Use <Leader> (backspace by default) for easymotion
     map <Leader> <Plug>(easymotion-prefix)
     let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
@@ -44,7 +167,31 @@
     map  <Leader>w <Plug>(easymotion-bd-w)
     nmap <Leader>w <Plug>(easymotion-overwin-w)
 
-  " incsearch config
+  " Unite {{{3
+   " Custom mappings for the unite buffer
+    autocmd FileType unite call s:unite_settings()
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    function! s:unite_settings()
+      " Play nice with supertab
+      let b:SuperTabDisabled=1
+      " Enable navigation with control-j and control-k in insert mode
+      nmap <buffer> <C-p>   <Plug>(unite_toggle_auto_preview)
+    endfunction
+
+    " grep for a string in the current dir.
+    nnoremap <leader>g :Unite -start-insert grep:.<CR>
+
+    " ctrl-p courtesy of Unite.vim
+    nnoremap <C-p> :Unite file_rec/async<CR>
+
+    " yankring
+    nnoremap <leader>y :<C-u>Unite -buffer-name=yank history/yank<cr>
+
+    " buffer search
+    nnoremap <leader>b :<C-u>Unite -quick-match -buffer-name=buffer buffer<cr>
+
+  " incsearch {{{3
+    let g:incsearch#auto_nohlsearch = 1
     map / <Plug>(incsearch-forward)
     map ? <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-stay)
@@ -53,9 +200,6 @@
     map z? <Plug>(incsearch-fuzzy-?)
     map zg/ <Plug>(incsearch-fuzzy-stay)
 
-    " :h g:incsearch#auto_nohlsearch
-    set hlsearch
-    let g:incsearch#auto_nohlsearch = 1
     map n  <plug>(incsearch-nohl-n)
     map n  <plug>(incsearch-nohl-n)
     map *  <plug>(incsearch-nohl-*)
@@ -63,109 +207,23 @@
     map g* <plug>(incsearch-nohl-g*)
     map g# <Plug>(incsearch-nohl-g#)
 
-"  READER submode
-  call submode#enter_with('READER', 'n', '', '<space>', 'H')
-  call submode#leave_with('READER', 'n', '', '<space>')
-  call submode#map('READER', 'n', '', 'j', '<C-e>')
-  call submode#map('READER', 'n', '', 'k', '<C-y>k')
+  " old {{{3
 
-  " Turn off automatic timeout
-  let g:submode_timeout = 0
-  " don't consume submode-leaving key
-  let g:submode_keep_leaving_key = 1
+"  Maybe <Leader>t?
+"  nnoremap <Leader>t :SyntasticToggleMode<CR>
+"  command Obsess Obsession $XDG_DATA_HOME/vim/Session.vim
+"
+"" Use buffers as tabs.
+"  set hidden  " Allow open background files.
+"  nnoremap th  :bfirst<CR>
+"  nnoremap tj  :bprevious<CR>
+"  nnoremap tk  :bnext<CR>
+"  nnoremap tl  :blast<CR>
+"  nnoremap tn  :edit<Space>
+"  nnoremap td  :bdelete<CR>
+"  "nnoremap td  :tabclose<CR>
+"  "nnoremap tm  :tabm<Space>
 
-  " vim-better-whitespace HACK: necessary because bug
-  autocmd VimEnter * DisableWhitespace
-  "autocmd VimEnter * EnableWhitespace  " turn off for now
-  autocmd BufWritePre * StripWhitespace  " eliminate whitespace on save
-  "autocmd VimEnter * DisableNonCountedBasicMotions
-
-  nnoremap <C-t> :SyntasticToggleMode<CR>
-  command Obsess Obsession $XDG_DATA_HOME/vim/Session.vim
-
-" Line numbers
-  " set relativenumber  " show line number relative to the current line
-  set number
-  set numberwidth=1
-
-" Searching
-  set ignorecase              " ignore case, except...
-  set smartcase               " uppercase searches are case sensitive
-  " clear highlighting with return
-  nnoremap <CR> :noh<CR><CR>
-
-" TODO look into this
-" ctrl-p courtesy of Unite.vim
-  nnoremap <C-p> :Unite file_rec/neovim<CR>
-
-" Tabbing
-  set expandtab " use spaces whenever tab is hit
-  set shiftwidth=2 " sets width of indentation (autoindent)
-
-" Folding
-  set foldmethod=manual
-
-  " fold with space
-  " nnoremap <space> za
-  " vnoremap <space> zf
-
-" Use buffers as tabs.
-  set hidden  " Allow open background files.
-  nnoremap th  :bfirst<CR>
-  nnoremap tj  :bprevious<CR>
-  nnoremap tk  :bnext<CR>
-  nnoremap tl  :blast<CR>
-  nnoremap tn  :edit<Space>
-  nnoremap td  :bdelete<CR>
-  "nnoremap td  :tabclose<CR>
-  "nnoremap tm  :tabm<Space>
-
-" Clipboard support
-  set clipboard=unnamedplus
-
-" Colors
-  let base16colorspace=256  " Access colors present in 256 colorspace
-                            " (only use with base16-shell modification
-                            " to 256 colorspace)
-  set background=dark
-  syntax on  " turn on syntax highlighting
-  let &rtp.=','.$XDG_CONFIG_HOME.'/theme/vim'
-  colorscheme base16-ateliersavanna
-
-" Window navigation
-  nnoremap <C-h> <C-w><C-h>
-  nnoremap <C-j> <C-w><C-j>
-  nnoremap <C-k> <C-w><C-k>
-  nnoremap <C-l> <C-w><C-l>
-
-" Vim practice.
-  " Disable the arrow keys in command mode (a good habit).
-  map <up> <nop>
-  map <down> <nop>
-  map <left> <nop>
-  map <right> <nop>
-
-  " Let's learn a different escape sequence.
-  inoremap <Esc> <nop>
-  inoremap jk <Esc>
-
-" Misc.
-  " fix annoying line-skipping behavior on long lines
-  " nnoremap j gj
-  " nnoremap k gk
-
-  " whitespace
-    " it's always annoying in these files
-    autocmd FileType c,py,java autocmd BufWritePre <buffer> :%s/\s\+$//e
-
-    " otherwise, we define
-    command! -bar FixWhitespace %s/\s\+$//
-
-  " Neovim's matchit is broken right now; turn it off.
-  " let loaded_matchit = 1
-
-" crosshair-style selection--useful for e.g. CSV
-" set cursorline
-" set cursorcolumn
-
-" set colorcolumn=80  " Note the 80-character terminal width
+" Settings that override vim-sensible {{{1
+  " Try a limited version of backspace..
+  set backspace=

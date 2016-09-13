@@ -1,0 +1,84 @@
+" vim-sensible comments {{{1
+
+  " Colors {{{2
+    syntax enable  " Enable syntax highlighting
+
+  " Mappings {{{2
+    " What can the user backspace over in insert mode?
+    set backspace=indent,eol,start
+
+  " Cursor offsets {{{2
+    " Always keep <scrolloff> lines above the cursor for context.
+    set scrolloff=1         
+
+  " Status line {{{2
+    set laststatus=2        " Always show a statusline.
+    set ruler               " Show row,col.
+    set wildmenu            " Show tab-completion options for e.g. help.
+
+  " Tabs and indentation {{{2
+    set smarttab        " Use shiftwidth at beginning of line, else softtabstop
+    set autoindent      " Automatically insert indentation.
+                        " Note: smartindent is old, shouldn't be used.
+     
+  " Filetype settings {{{2
+    " Read per-filetype plugin and indentation files.
+    filetype plugin indent on
+
+  " Searching {{{2
+    set incsearch               " highlight matches in real time
+
+    " Clear highlighting with <C-L>.
+    if maparg('<C-L>', 'n') ==# ''
+      nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+    endif
+
+  " Tags {{{2
+    " Search for tags in all directories upward from ./tags.
+    if has('path_extra')
+      setglobal tags-=./tags tags-=./tags; tags^=./tags;
+    endif
+
+  " Key response {{{2
+    set ttimeout        " timeout on :mappings and key codes
+    set ttimeoutlen=100
+
+  " Session management {{{2
+    set viminfo^=!               " Saves global variables (see help for details).
+    set sessionoptions-=options  " Don't save 'all options and mappings'.
+  
+  " Miscellany {{{2
+    set autoread     " If the file changes on disk, update the display.
+    set history=1000 " Keep plenty of history.
+    set tabpagemax=50 " Maximum number of tabs opened with vim -p [files]. 
+
+  " Convenience {{{2
+    " Show the following characters when 'list' is set.
+    " Useful for checking for tabs, etc., in a file
+    set listchars=tab:>\ ,trail:#,extends:>,precedes:<,nbsp:+
+
+  " Other notes {{{2
+    set complete-=i         " Don't use #include files for completions.
+    set nrformats-=octal    " Consider numbers beginning in 0 as decimal.
+                            " (For use with inc/dec: <C-a/x>.)
+    set sidescrolloff=5     " Keep 5 columns to the right of the cursor if nowrap. 
+    set display+=lastline   " Display as much of the last line as possible.
+
+    if v:version > 703 || v:version == 703 && has("patch541")
+      set formatoptions+=j " Delete comment character when joining commented 
+                           " lines.
+    endif
+
+    " Use bash instead of fish as the shell for incompatible versions of Vim
+    if &shell =~# 'fish$' && (v:version < 704 || v:version == 704 && !has('patch276'))
+      set shell=/bin/bash
+    endif
+
+    " Allow color schemes to do bright colors without forcing bold.
+    if &t_Co == 8 && $TERM !~# '^linux\|^Eterm'
+      set t_Co=16
+    endif
+    
+    " Not sure exactly what this does.
+    " I think it fixes <C-U> during insert so that it can be undone?
+    inoremap <C-U> <C-G>u<C-U>
