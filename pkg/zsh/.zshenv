@@ -5,8 +5,10 @@ export XDG_RUNTIME_DIR=$HOME/.local/tmp
 
 export WORKON_HOME=$XDG_DATA_HOME/virtualenvs
 export GOPATH=$XDG_DATA_HOME/go
+export GEM_HOME=$XDG_DATA_HOME/gem
 export PATH=~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-export PATH=$GOPATH:$GOPATH/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
+export PATH=$GEM_HOME/bin:$PATH
 
 HISTFILE=$XDG_DATA_HOME/zsh/history
 ZDOTDIR=$XDG_CONFIG_HOME/zsh
