@@ -138,7 +138,9 @@
 
     " Fuzzy searching with z/.
     Plug 'haya14busa/incsearch-fuzzy.vim'
-"
+
+    " Seamless pane navigation between vim and tmux.
+    Plug 'christoomey/vim-tmux-navigator'
   " Add plugins to &runtimepath
   call plug#end()
 
