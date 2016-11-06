@@ -1,4 +1,6 @@
 " TODO: sessions
+" TODO: proper paste support
+" TODO: hlsearch toggle
 " Vim settings {{{1
   " XDG compliance (MUST stay at top) {{{2
     set directory=$XDG_CACHE_HOME/vim,~/,/tmp
