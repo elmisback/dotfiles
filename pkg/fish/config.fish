@@ -8,8 +8,7 @@ set -x GEM_HOME $XDG_DATA_HOME/gem
 set -x GOPATH $XDG_DATA_HOME/go
 set -x npm_config_prefix $XDG_DATA_HOME/npm
 
-set -x PATH $GOPATH $GEM_HOME/bin /usr/local/bin /usr/bin /bin
-set -x PATH $GOPATH $GEM_HOME/bin $npm_config_prefix/bin $PREFIX/bin /usr/local/bin /usr/bin /bin
+set -x PATH $GOPATH/bin $GEM_HOME/bin $npm_config_prefix/bin $PREFIX/bin /usr/local/bin /usr/bin /bin
 
 set -x VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
