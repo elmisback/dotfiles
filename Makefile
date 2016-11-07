@@ -9,9 +9,10 @@ debug:
 
 .PHONY: links
 links:
-	# Make sure $(XDG_CONFIG_HOME) exists first.
+	# Creating $(XDG_CONFIG_HOME) if it doesn't already exist...
 	mkdir -p $(XDG_CONFIG_HOME)
 
+	# Stowing links...
 	stow --target=$(XDG_CONFIG_HOME) pkg
 
 .PHONY: plugins
