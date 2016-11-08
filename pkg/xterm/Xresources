@@ -1,0 +1,8 @@
+! No scrollback (use tmux for that).
+xterm*saveLines: 0
+
+! Properly set the terminal name.
+xterm*termName: xterm-256color
+
+! Set the font.
+xterm*faceName: Hack:size=8:antialias=true:autohint=true
