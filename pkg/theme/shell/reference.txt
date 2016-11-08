@@ -1,0 +1,25 @@
+# Black
+# Red
+# Green
+# Yellow
+# Blue
+# Magenta
+# Cyan
+# White
+# Bright Black
+# Bright Red
+# Bright Green
+# Bright Yellow
+# Bright Blue
+# Bright Magenta
+# Bright Cyan
+# Bright White
+# 256-colorspace
+# 256-colorspace
+# 256-colorspace
+# 256-colorspace
+# 256-colorspace
+# 256-colorspace
+# Foreground
+# Background
+# Cursor
