@@ -143,6 +143,8 @@
 
     " Seamless pane navigation between vim and tmux.
     Plug 'christoomey/vim-tmux-navigator'
+
+    Plug 'yuratomo/w3m.vim'
   " Add plugins to &runtimepath
   call plug#end()
 
