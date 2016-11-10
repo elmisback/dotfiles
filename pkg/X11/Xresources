@@ -4,5 +4,7 @@ xterm*saveLines: 0
 ! Properly set the terminal name.
 xterm*termName: xterm-256color
 
+xterm*background: rgb:10/10/10
+
 ! Set the font.
-xterm*faceName: Hack:size=8:antialias=true:autohint=true
+xterm*faceName: Hack:size=13:antialias=true:autohint=true
