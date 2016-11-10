@@ -8,3 +8,6 @@ xterm*background: rgb:10/10/10
 
 ! Set the font.
 xterm*faceName: Hack:size=13:antialias=true:autohint=true
+
+*VT100.Translations: #override \
+  ~Meta Shift Ctrl <Key>V: insert-selection(CLIPBOARD)
