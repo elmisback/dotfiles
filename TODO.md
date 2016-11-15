@@ -1,21 +1,11 @@
-* set locale
+* fix fasd for fish
+
 * vim sessions
-* zsh fish-style autosuggestions
 * add ctags support to vim
 * play with prompt
-* export variables in zshenv that aren't ZSH-specific
 * make ansible playbook retry dir somewhere that's not $HOME
-* resolve issue with default git commit editor
-* remove dependency on GNU stow
-* zsh theming (esp. perhaps time-specific/an $ATMOSPHERE variable hooked to the desktop as well?)
-* fix docker config location
 * make nvim git's difftool
 * streamline ssh config?
-* repair standard vim
-* work out MYVIMRC/VIMINIT variables as per https://tlvince.com/vim-respect-xdg
 
 # Ideas
 * Hold command line at the bottom of the screen.
-
-# Future
-* try switching to dtach + dvtm
