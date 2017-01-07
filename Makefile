@@ -23,7 +23,6 @@ plugins:
 
 .PHONY: home
 home:
-	ln -sf $(PWD)/pkg/zsh/.zshenv $(HOME)/.zshenv
 	mkdir -p $(HOME)/.ssh
 	ln -sf $(PWD)/pkg/ssh/config $(HOME)/.ssh/config
 
