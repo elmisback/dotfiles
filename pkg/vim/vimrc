@@ -145,8 +145,6 @@
     " Seamless pane navigation between vim and tmux.
     Plug 'christoomey/vim-tmux-navigator'
 
-    Plug 'yuratomo/w3m.vim'
-
     Plug 'JuliaEditorSupport/julia-vim'
 
     Plug 'lukaszkorecki/workflowish'
