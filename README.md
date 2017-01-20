@@ -15,7 +15,7 @@ Finally, open tmux and run
 ```
 
 
-# Uninstalling (rather destructive)
+# Uninstalling
 ```
 make uninstall
 ```
