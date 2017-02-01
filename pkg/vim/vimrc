@@ -24,12 +24,12 @@
     let mapleader=","
 
   " Line numbers {{{2
-    set number
-    set relativenumber
+    " set number
+    " set relativenumber
 
   " Cursor offsets {{{2
     " Keep lines above the cursor for context.
-    set scrolloff=5
+    set scrolloff=999
 
   " Line wrapping (TODO) {{{2
     "    " Line numbers and line breaks
@@ -139,14 +139,16 @@
     " Highlight *all* pattern matches, unlike standard incsearch.
     Plug 'haya14busa/incsearch.vim'
 
-    " Fuzzy searching with z/.
-    Plug 'haya14busa/incsearch-fuzzy.vim'
+    " Fuzzy finder
+    Plug 'junegunn/fzf', { 'dir': '$XDG_CONFIG_HOME/fzf', 'do': './install --all' }
 
     " Seamless pane navigation between vim and tmux.
     Plug 'christoomey/vim-tmux-navigator'
 
+    " Julia support
     Plug 'JuliaEditorSupport/julia-vim'
 
+    " Workflowy-style-todo support
     Plug 'lukaszkorecki/workflowish'
 
   " Add plugins to &runtimepath
@@ -206,10 +208,6 @@
     map ? <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-stay)
 
-    map z/ <Plug>(incsearch-fuzzy-/)
-    map z? <Plug>(incsearch-fuzzy-?)
-    map zg/ <Plug>(incsearch-fuzzy-stay)
-
     map n  <plug>(incsearch-nohl-n)
     map n  <plug>(incsearch-nohl-n)
     map *  <plug>(incsearch-nohl-*)
@@ -236,4 +234,5 @@
 
 " Settings that override vim-sensible {{{1
   " Try a limited version of backspace..
-  set backspace=
+  runtime! plugin/sensible.vim
+  set laststatus=0
