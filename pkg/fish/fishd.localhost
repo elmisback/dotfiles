@@ -4,6 +4,7 @@ SET_EXPORT EDITOR:vim
 SET_EXPORT GEM_HOME:/home/elm/\x2elocal/share/gem
 SET_EXPORT GOPATH:/home/elm/\x2elocal/share/go
 SET_EXPORT HTTPIE_CONFIG_DIR:/home/elm/\x2econfig/httpie
+SET_EXPORT INPUTRC:/home/elm/\x2econfig/readline/inputrc
 SET_EXPORT IPYTHONDIR:/home/elm/\x2elocal/share/ipython
 SET_EXPORT JULIA_PKGDIR:/home/elm/\x2elocal/share/julia
 SET_EXPORT LANG:en_US\x2eUTF\x2d8
@@ -11,6 +12,7 @@ SET_EXPORT LESSHISTFILE:/home/elm/\x2ecache/less/history
 SET_EXPORT LESSKEY:/home/elm/\x2econfig/less/lesskey
 SET_EXPORT NODE_REPL_HISTORY:/home/elm/\x2elocal/share/node_repl_history
 SET_EXPORT PAGER:less
+SET_EXPORT PREFIX:/home/elm/\x2elocal
 SET_EXPORT TERMINFO:/home/elm/\x2elocal/share/terminfo
 SET_EXPORT TERMINFO_DIRS:/home/elm/\x2elocal/share/terminfo\x1e/usr/share/terminfo
 SET_EXPORT VIMINIT:let\x20\x24MYVIMRC\x3d\x22\x24XDG_CONFIG_HOME/vim/vimrc\x22\x20\x7c\x20source\x20\x24MYVIMRC
@@ -22,7 +24,10 @@ SET_EXPORT XDG_RUNTIME_DIR:/home/elm/\x2elocal/tmp
 SET_EXPORT XINITRC:/home/elm/\x2econfig/X11/xinitrc
 SET_EXPORT _FASD_DATA:/home/elm/\x2ecache/fasd/data
 SET __fish_init_1_50_0:\x1d
+SET __fish_init_2_39_8:\x1d
 SET __fish_init_2_3_0:\x1d
+SET __tf_func:function\x20__tf_alias\x20\x2dd\x20\x22Correct\x20your\x20previous\x20console\x20command\x22\x3b\x20\x20set\x20\x2dl\x20fucked_up_command\x20\x24history\x5b1\x5d\x3b\x20\x20env\x20TF_ALIAS\x3d__tf_alias\x20PYTHONIOENCODING\x3dutf\x2d8\x20thefuck\x20\x24fucked_up_command\x20\x7c\x20read\x20\x2dl\x20unfucked_command\x3b\x20\x20if\x20\x5b\x20\x22\x24unfucked_command\x22\x20\x21\x3d\x20\x22\x22\x20\x5d\x3b\x20\x20\x20\x20eval\x20\x24unfucked_command\x3b\x20\x20\x20\x20history\x20\x2d\x2ddelete\x20\x24fucked_up_command\x3b\x20\x20\x20\x20history\x20\x2d\x2dmerge\x20\x5e\x20/dev/null\x3b\x20\x20end\x3bend\x3b
+SET __tf_vers:The\x20Fuck\x203\x2e11\x20using\x20Python\x202\x2e7\x2e13
 SET fish_color_autosuggestion:555\x1eyellow
 SET fish_color_command:005fd7\x1epurple
 SET fish_color_comment:red
@@ -43,12 +48,12 @@ SET fish_color_search_match:\x2d\x2dbackground\x3dpurple
 SET fish_color_selection:\x2d\x2dbackground\x3dpurple
 SET fish_color_user:green
 SET fish_color_valid_path:\x2d\x2dunderline
-SET fish_greeting:Welcome\x20to\x20fish\x2c\x20the\x20friendly\x20interactive\x20shell\x0aType\x20\x1b\x5b32mhelp\x1b\x5b30m\x1b\x28B\x1b\x5bm\x20for\x20instructions\x20on\x20how\x20to\x20use\x20fish
+SET fish_greeting:\x1d
 SET fish_key_bindings:fish_vi_key_bindings
 SET fish_pager_color_completion:normal
 SET fish_pager_color_description:555\x1eyellow
 SET fish_pager_color_prefix:cyan
 SET fish_pager_color_progress:cyan
-SET_EXPORT fish_user_paths:/home/elm/\x2elocal/share/go/bin\x1e/home/elm/\x2elocal/share/gem/bin\x1e/home/elm/\x2elocal/share/npm/bin\x1e/home/elm/\x2elocal/bin
-SET fisher_dependency_count:foreign\x2denv\x1efasd
+SET_EXPORT fish_user_paths:/home/elm/\x2elocal/share/go/bin\x1e/home/elm/\x2elocal/share/gem/bin\x1e/home/elm/\x2elocal/share/npm/bin\x1e/home/elm/\x2elocal/bin\x1e/home/elm/\x2elocal/share/miniconda3/bin\x1e/home/elm/build/fzf/bin
+SET fisher_dependency_count:fasd\x1eforeign\x2denv
 SET_EXPORT npm_config_prefix:/home/elm/\x2elocal/share/npm
