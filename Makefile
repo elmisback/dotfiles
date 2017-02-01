@@ -23,6 +23,7 @@ plugins:
 
 .PHONY: home
 home:
+	ln -sf $(PWD)/home/xiwirc $(HOME)/.xiwirc
 	mkdir -p $(HOME)/.ssh
 	ln -sf $(PWD)/pkg/ssh/config $(HOME)/.ssh/config
 
