@@ -124,9 +124,6 @@
     " :Limelight to dim unfocused paragraphs.
     Plug 'junegunn/limelight.vim'
 
-    " TODO document
-    Plug 'scrooloose/syntastic'
-
     " Highlight and remove trailing whitespace.
     Plug 'ntpeters/vim-better-whitespace'
 
@@ -136,11 +133,21 @@
     " 'search and display information from arbitrary sources'.
     Plug 'Shougo/neoyank.vim' | Plug 'Shougo/vimproc.vim', {'do' : 'make'} | Plug 'Shougo/unite.vim'
 
+    " autocomplete
+    Plug 'ervandew/supertab'
+    Plug 'davidhalter/jedi-vim'
+
+    " Easy pydoc
+    Plug 'fs111/pydoc.vim'
+
     " Highlight *all* pattern matches, unlike standard incsearch.
     Plug 'haya14busa/incsearch.vim'
 
     " Fuzzy finder
     Plug 'junegunn/fzf', { 'dir': '$XDG_CONFIG_HOME/fzf', 'do': './install --all' }
+
+    " Linter
+    Plug 'w0rp/ale'
 
     " Seamless pane navigation between vim and tmux.
     Plug 'christoomey/vim-tmux-navigator'
@@ -202,6 +209,9 @@
     " buffer search
     nnoremap <leader>b :<C-u>Unite -quick-match -buffer-name=buffer buffer<cr>
 
+  " Supertab {{{3
+    let g:SuperTabDefaultCompletionType = "<c-n>"
+
   " incsearch {{{3
     let g:incsearch#auto_nohlsearch = 1
     map / <Plug>(incsearch-forward)
@@ -231,6 +241,12 @@
 "  nnoremap td  :bdelete<CR>
 "  "nnoremap td  :tabclose<CR>
 "  "nnoremap tm  :tabm<Space>
+
+  " Python stuff {{{3
+    " Autoformat
+    autocmd FileType python nnoremap <Leader>= :0,$!yapf<CR>
+    " Import sorting
+    autocmd FileType python nnoremap <Leader>i :!isort %<CR><CR>
 
 " Settings that override vim-sensible {{{1
   " Try a limited version of backspace..
