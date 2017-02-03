@@ -1,1 +1,2 @@
 graphics_toolkit('gnuplot')
+history_file = '~/.config/octave/history'
