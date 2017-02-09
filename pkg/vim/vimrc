@@ -49,6 +49,7 @@
     " <Tab> on commmand line completes matches to longest common string;
     " also shows wildmenu.
     set wildmode=list:longest,full
+    set wildignorecase      " Ignore case when completing file names.
     set showcmd             " Show the current normal-mode command.
 
   " Tabs and indentation {{{2
