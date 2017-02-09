@@ -29,7 +29,7 @@
 
   " Cursor offsets {{{2
     " Keep lines above the cursor for context.
-    set scrolloff=999
+    set scrolloff=5
 
   " Line wrapping (TODO) {{{2
     "    " Line numbers and line breaks
