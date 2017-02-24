@@ -14,3 +14,6 @@ xterm*faceName: Hack:size=10:antialias=true:autohint=true
 
 ! Display unicode properly
 xterm*locale: UTF-8
+
+! Use Alt for keyboard shortcuts
+xterm*metaSendsEscape: true
