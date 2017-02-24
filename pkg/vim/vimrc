@@ -159,6 +159,9 @@
     " Workflowy-style-todo support
     Plug 'lukaszkorecki/workflowish'
 
+    " vim CSS color
+    Plug 'ap/vim-css-color'
+
   " Add plugins to &runtimepath
   call plug#end()
 
