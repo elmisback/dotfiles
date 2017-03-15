@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Settings
+LANG=en_US.UTF-8
+EDITOR=vim
+PAGER=less
+
+# Paths
+export PREFIX=$HOME/.local
+export XDG_CACHE_HOME=$PREFIX/cache
+export XDG_CONFIG_HOME=$PREFIX/config
+export XDG_DATA_HOME=$PREFIX/share
+export XDG_RUNTIME_DIR=$PREFIX/tmp
+
+# App data
+CARGO_HOME=$XDG_DATA_HOME/cargo
+GOPATH=$XDG_DATA_HOME/go
+IPYTHONDIR=$XDG_DATA_HOME/ipython
+JULIA_PKGDIR=$XDG_DATA_HOME/julia
+npm_config_prefix=$XDG_DATA_HOME/npm
+MINICONDA_HOME=$XDG_DATA_HOME/miniconda3
+PYLINTHOME=$XDG_DATA_HOME/pylint
+
+# Config
+HTTPIE_CONFIG_DIR=$XDG_CONFIG_HOME/httpie
+INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
+LESSKEY=$XDG_CONFIG_HOME/less/lesskey
+VIMINIT="source ${XDG_CONFIG_HOME}/vim/vimrc"
+XINITRC=$XDG_CONFIG_HOME/X11/xinitrc
+
+# Cache
+_FASD_DATA=$XDG_CACHE_HOME/fasd/data
+LESSHISTFILE=$XDG_CACHE_HOME/less/history
+NODE_REPL_HISTORY=$XDG_CACHE_HOME/npm/node_repl_history
+XAUTHORITY=$XDG_CACHE_HOME/X11/Xauthority
+
+# Build PATH
+export PATH=$GOPATH/bin:$npm_config_prefix/bin:$PREFIX/bin:$MINICONDA_HOME/bin:$XDG_DATA_HOME/cargo/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games

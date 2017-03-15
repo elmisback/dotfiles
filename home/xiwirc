@@ -1,2 +1,2 @@
 # HACK run on startup
-xrdb -load ~/.config/X11/Xresources
+xrdb -load ~/.local/config/X11/Xresources

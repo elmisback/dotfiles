@@ -1,3 +1,3 @@
 if status --is-interactive
-  ansi-theme set
+  ansi-scheme load
 end

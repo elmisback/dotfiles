@@ -25,6 +25,7 @@ plugins:
 home:
 	ln -sf $(PWD)/home/xiwirc $(HOME)/.xiwirc
 	ln -sf $(PWD)/home/octaverc $(HOME)/.octaverc
+	ln -sf $(PWD)/home/profile $(HOME)/.profile
 	mkdir -p $(HOME)/.ssh
 	ln -sf $(PWD)/pkg/ssh/config $(HOME)/.ssh/config
 

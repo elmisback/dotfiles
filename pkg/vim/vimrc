@@ -145,7 +145,7 @@
     Plug 'haya14busa/incsearch.vim'
 
     " Fuzzy finder
-    Plug 'junegunn/fzf', { 'dir': '$XDG_CONFIG_HOME/fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf', { 'dir': '$XDG_DATA_HOME/fzf', 'do': './install --bin' }
 
     " Linter
     Plug 'w0rp/ale'
@@ -161,6 +161,9 @@
 
     " vim CSS color
     Plug 'ap/vim-css-color'
+
+    " easy align
+    Plug 'junegunn/vim-easy-align'
 
   " Add plugins to &runtimepath
   call plug#end()
