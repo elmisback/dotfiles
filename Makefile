@@ -1,4 +1,5 @@
 # Run from Makefile directory
+
 .PHONY: all
 all: install
 
@@ -23,11 +24,11 @@ plugins:
 
 .PHONY: home
 home:
-	ln -sf $(PWD)/home/xiwirc $(HOME)/.xiwirc
-	ln -sf $(PWD)/home/octaverc $(HOME)/.octaverc
-	ln -sf $(PWD)/home/profile $(HOME)/.profile
+	ln -sf $(CURDIR)/home/xiwirc $(HOME)/.xiwirc
+	ln -sf $(CURDIR)/home/octaverc $(HOME)/.octaverc
+	ln -sf $(CURDIR)/home/profile $(HOME)/.profile
 	mkdir -p $(HOME)/.ssh
-	ln -sf $(PWD)/pkg/ssh/config $(HOME)/.ssh/config
+	ln -sf $(CURDIR)/pkg/ssh/config $(HOME)/.ssh/config
 
 .PHONY: uninstall
 uninstall:
