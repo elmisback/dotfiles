@@ -35,5 +35,12 @@ uninstall:
 	rm -rf $(XDG_CACHE_HOME)
 	rm -f $(HOME)/.zshenv
 
+# HACK help dev-env figure out whether to install dotfiles
+lockfile:
+	touch lockfile
+
+clean:
+	rm -f lockfile
+
 .PHONY: install
-install: links plugins home
+install: links plugins home lockfile
