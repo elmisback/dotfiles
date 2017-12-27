@@ -1,6 +1,25 @@
 " TODO: sessions
 " TODO: proper paste support
 " TODO: hlsearch toggle
+
+" function! s:get_visual_selection()
+"     " Why is this not a built-in Vim script function?!
+"     let [line_start, column_start] = getpos("'<")[1:2]
+"     let [line_end, column_end] = getpos("'>")[1:2]
+"     let lines = getline(line_start, line_end)
+"     if len(lines) == 0
+"         return ''
+"     endif
+"     let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+"     let lines[0] = lines[0][column_start - 1:]
+"     return join(lines, "\n")
+" endfunction
+"
+"
+" function FillTemplate ()
+"   let @t = substitute(s:get_visual_selection(), "%s", @0)
+" endfunction
+
 " Vim settings {{{1
   " XDG compliance (MUST stay at top) {{{2
     set directory=$XDG_CACHE_HOME/vim,~/,/tmp
@@ -24,8 +43,8 @@
     let mapleader=","
 
   " Line numbers {{{2
-    " set number
-    " set relativenumber
+    set number
+    set relativenumber
 
   " Cursor offsets {{{2
     " Keep lines above the cursor for context.
@@ -72,6 +91,7 @@
 
   " Folding {{{2
     set foldmethod=marker
+    autocmd FileType javascript,typescript setlocal foldmethod=indent
 
     " fold with space
     nnoremap <space> za
@@ -119,6 +139,10 @@
     " TODO document
     Plug 'tpope/vim-vinegar'
 
+    " abolish.vim: easily search for, substitute, and
+    " abbreviate multiple variants of a word
+    Plug 'tpope/tpope-vim-abolish'
+
     " :Goyo for distraction-free writing.
     Plug 'junegunn/goyo.vim'
 
@@ -156,6 +180,13 @@
     " Julia support
     Plug 'JuliaEditorSupport/julia-vim'
 
+    " Rust support
+    Plug 'rust-lang/rust.vim'
+
+    " Rust code completion
+    " TODO needs configuration & addition to dev-env
+    Plug 'racer-rust/vim-racer'
+
     " Workflowy-style-todo support
     Plug 'lukaszkorecki/workflowish'
 
@@ -165,13 +196,19 @@
     " easy align
     Plug 'junegunn/vim-easy-align'
 
+    " parenthesis coloring
+    Plug 'luochen1990/rainbow'
+
+    " typescript defs
+    Plug 'leafgarland/typescript-vim'
+
   " Add plugins to &runtimepath
   call plug#end()
 
 " Plugin configuration {{{2
   " vim-better-whitespace {{{3
     " For all files, strip trailing whitespace on write.
-    autocmd BufWritePre * StripWhitespace
+    autocmd BufEnter * if index(g:better_whitespace_filetypes_blacklist, &ft) < 0 | exec 'EnableStripWhitespaceOnSave' | endif
 
   " easymotion {{{3
     " Use <Leader> (backspace by default) for easymotion
@@ -231,6 +268,12 @@
     map #  <plug>(incsearch-nohl-#)
     map g* <plug>(incsearch-nohl-g*)
     map g# <Plug>(incsearch-nohl-g#)
+
+  " rainbow {{{3
+    let g:rainbow_conf = {
+    \  'ctermfgs': ['cyan', 'yellow', 'red']
+    \}
+    let g:rainbow_active = 1
 
   " old {{{3
 

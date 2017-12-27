@@ -1,7 +1,8 @@
 #source $XDG_CONFIG_HOME/zsh/antigen/antigen.zsh
-source $XDG_CONFIG_HOME/theme/shell/base16-ateliersavanna.dark.sh
-eval "$(dircolors $XDG_CONFIG_HOME/theme/shell/dircolors)"
-
+#
+#source $XDG_CONFIG_HOME/theme/shell/base16-ateliersavanna.dark.sh
+#eval "$(dircolors $XDG_CONFIG_HOME/theme/shell/dircolors)"
+#
 # Load the oh-my-zsh library.
 #antigen use oh-my-zsh
 
@@ -48,19 +49,18 @@ mkdir -p ${HISTFILE:h} && touch $HISTFILE
 #fi
 #source "$fasd_cache"
 #unset fasd_cache
-
-mkdir -p $XDG_CACHE_HOME/fasd
-export _FASD_DATA=$XDG_CACHE_HOME/fasd/data
-eval "$(fasd --init auto)"
-
-alias v='f -e vim' # quick opening files with vim
-alias h='vim -M <(tmux capture-pane -S - -p) +' # read history with vim
-
-alias ls='ls -lhA --color=auto'
-
-export TMUX_TMPDIR="$XDG_RUNTIME_DIR"/tmux
-mkdir -p $TMUX_TMPDIR
-alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
+#
+#mkdir -p $XDG_CACHE_HOME/fasd
+#export _FASD_DATA=$XDG_CACHE_HOME/fasd/data
+#eval "$(fasd --init auto)"
+#
+#alias v='f -e vim' # quick opening files with vim
+#alias h='vim -M <(tmux capture-pane -S - -p) +' # read history with vim
+#
+#alias ls='ls -lhA --color=auto'
+#
+#export TMUX_TMPDIR="$XDG_RUNTIME_DIR"/tmux
+#mkdir -p $TMUX_TMPDIR
 
 if [ -f $ZDOTDIR/zshrc-local ]; then
     . $ZDOTDIR/zshrc-local

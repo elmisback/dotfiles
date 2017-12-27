@@ -27,8 +27,11 @@ home:
 	ln -sf $(CURDIR)/home/xiwirc $(HOME)/.xiwirc
 	ln -sf $(CURDIR)/home/octaverc $(HOME)/.octaverc
 	ln -sf $(CURDIR)/home/profile $(HOME)/.profile
+	ln -sf $(CURDIR)/home/bash_profile $(HOME)/.bash_profile
+	ln -sf $(CURDIR)/home/bash_profile $(HOME)/.bashrc
 	mkdir -p $(HOME)/.ssh
 	ln -sf $(CURDIR)/pkg/ssh/config $(HOME)/.ssh/config
+	ln -sf $(CURDIR)/pkg/zsh/zshenv $(HOME)/.zshenv
 
 .PHONY: uninstall
 uninstall:

@@ -1,0 +1,5 @@
+*
+!.gitignore
+!ipython_config.py
+
+!*/
