@@ -1,3 +1,9 @@
+* Add these lines to jupyter/ipython config
+%reload_ext autoreload
+%autoreload 2
+%matplotlib inline
+
+
 * fix fasd for fish
 * vim sessions
 * vim case-insensitive tab completion in normal mode

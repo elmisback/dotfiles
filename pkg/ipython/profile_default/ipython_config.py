@@ -32,7 +32,12 @@
 #c.InteractiveShellApp.exec_lines = []
 
 ## A list of dotted module names of IPython extensions to load.
-#c.InteractiveShellApp.extensions = []
+# autoreload: reload modules when they change in the editor
+c.InteractiveShellApp.extensions = ['autoreload', 'matplotlib']
+c.InteractiveShellApp.exec_lines = ['%autoreload 2']  # Turns on autoreload
+c.InteractiveShellApp.exec_lines.append('print("Warning: disable autoreload in ipython_config.py to improve performance.")')
+c.InteractiveShellApp.exec_lines = ['%matplotlib inline']  # Inline plotting
+
 
 ## dotted module name of an IPython extension to load.
 #c.InteractiveShellApp.extra_extension = ''
@@ -600,3 +605,5 @@
 
 # Use vi keybindings.
 c.TerminalInteractiveShell.editing_mode = 'vi'
+
+

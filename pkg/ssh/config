@@ -1,2 +1,13 @@
+Host fastai
+  HostName crosby.cluster.recurse.com
+  User elm
+  LocalForward 8096 localhost:8096
+
+
+Host os
+  HostName spring.cluster.recurse.com
+  User elm
+  ForwardAgent=yes
+
 Host *
   AddKeysToAgent=yes
