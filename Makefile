@@ -24,6 +24,7 @@ plugins:
 
 .PHONY: home
 home:
+	ln -sf $(CURDIR)/home/gitconfig $(HOME)/.gitconfig
 	ln -sf $(CURDIR)/home/xiwirc $(HOME)/.xiwirc
 	ln -sf $(CURDIR)/home/octaverc $(HOME)/.octaverc
 	ln -sf $(CURDIR)/home/profile $(HOME)/.profile
