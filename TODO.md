@@ -5,13 +5,7 @@
 
 
 * fix fasd for fish
+* add Python library binaries to path
 * vim sessions
-* vim case-insensitive tab completion in normal mode
 
-* add ctags support to vim
-* play with prompt
-* make ansible playbook retry dir somewhere that's not $HOME
-* streamline ssh config?
-
-# Ideas
-* Hold command line at the bottom of the screen.
+* add ctags support to vim for function lookup

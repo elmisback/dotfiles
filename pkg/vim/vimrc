@@ -159,8 +159,8 @@
     Plug 'Shougo/neoyank.vim' | Plug 'Shougo/vimproc.vim', {'do' : 'make'} | Plug 'Shougo/unite.vim'
 
     " autocomplete
-    Plug 'ervandew/supertab'
-    Plug 'davidhalter/jedi-vim'
+    " Plug 'ervandew/supertab'
+    " Plug 'davidhalter/jedi-vim'
 
     " Easy pydoc
     Plug 'fs111/pydoc.vim'
@@ -172,7 +172,7 @@
     Plug 'junegunn/fzf', { 'dir': '$XDG_DATA_HOME/fzf', 'do': './install --bin' }
 
     " Linter
-    Plug 'w0rp/ale'
+    " Plug 'w0rp/ale'
 
     " Seamless pane navigation between vim and tmux.
     Plug 'christoomey/vim-tmux-navigator'
